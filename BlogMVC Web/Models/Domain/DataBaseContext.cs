@@ -1,10 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Configuration;
 
 namespace BlogMVC_Web.Models.Domain
 {
     public class DataBaseContext : DbContext
     {
-        public DataBaseContext(DbContextOptions<DataBaseContext> options) : base()
+        public DataBaseContext(DbContextOptions<DataBaseContext> options) : base(options)
         {
 
         }
