@@ -1,9 +1,15 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BlogMVC_Web.Models.Domain;
+using Microsoft.AspNetCore.Mvc;
 
 namespace BlogMVC_Web.Controllers
 {
     public class PersonController : Controller
     {
+
+        public PersonController() { 
+
+        }
+
         public IActionResult Index()
         {
             //ways passing data to view
@@ -16,8 +22,17 @@ namespace BlogMVC_Web.Controllers
             TempData["greeting2"] = "Its Tempalte msg";
             return View();
         }
+        public IActionResult AddPerson()
+        {
+            return View();
+        }
         [HttpPost]
-        public IActionResult AddPerson() {
+        public IActionResult AddPerson(Person person) {
+            if(!ModelState.IsValid)
+            {
+                return View();
+            }
+            TempData["submit_msg"] = "Added person successfully";
             return View();       
         }
     }

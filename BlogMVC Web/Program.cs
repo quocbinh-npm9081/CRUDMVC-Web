@@ -30,6 +30,6 @@ app.UseAuthorization();
 //Index method of home controller will excute first thing in this application
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Person}/{action=Index}/{id?}");
+    pattern: "{controller=Person}/{action=addperson}/{id?}");
 
 app.Run();
