@@ -1,0 +1,37 @@
+﻿@model IEnumerable<BlogMVC_Web.Models.Domain.Person>
+@{
+    //Layout = "_Layout";
+}
+
+<div class="nt-2" style="width: 50%">
+    <div class="row">
+        <h2>Person</h2>
+        <div class="col-md-4">
+
+            <a href="/person/addperson" class="btn btn-primary">Add Person</a>
+        </div>
+        <table class="table table-hover">
+            <thead>
+                <tr>             
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Action</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var person in Model)
+                {
+                    <tr>
+                        <td class="text-nowrap">@person.Name</td>
+                        <td class="text-nowrap">@person.Email</td>
+                        <td>
+                            <a href="">Edit</a>
+                            <a href="">Delete</a>
+                        </td>
+                    </tr>
+                }                                
+            </tbody>
+        </table>
+    </div>
+</div>

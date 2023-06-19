@@ -22,6 +22,13 @@ namespace BlogMVC_Web.Controllers
             TempData["greeting2"] = "Its Tempalte msg";
             return View();
         }
+
+        public IActionResult DisplayPersons()
+        {
+            var person = _context.Person.ToList();
+            return View(person);
+        }
+
         public IActionResult AddPerson()
         {
             return View();
@@ -37,7 +44,7 @@ namespace BlogMVC_Web.Controllers
                 _context.Add(person);
                 _context.SaveChanges();
                 TempData["submit_msg"] = "Added person successfully";
-                return RedirectToAction("AddPerson");
+                return RedirectToAction("DisplayPersons");
 
             }
             catch (Exception ex)
