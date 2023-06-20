@@ -1,0 +1,32 @@
+﻿@model BlogMVC_Web.Models.Domain.Person
+@{
+    //Layout = "_Layout";
+}
+<div class="mt-2" style="width: 50%">
+    <form asp-action="EditPerson">
+        <h2>EDIT PERSON</h2>
+        <div class="mb-3">
+            <input type="hidden" asp-for="Id" /> <!-- Trường ẩn để giữ Id của Person -->
+
+        </div>
+        <div class="mb-3">
+            <label asp-for="Name" class="form-label">Name</label>
+            <input asp-for="Name" type="text" class="form-control" id="name" aria-describedby="name">
+            <span class="text-danger" asp-validation-for="Name"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Email" class="form-label">Email</label>
+            <input asp-for="Email" type="text" class="form-control" id="email">
+            <span class="text-danger" asp-validation-for="Email"></span>
+
+        </div>
+        @if (TempData["submit_msg"] != null)
+        {
+            <div class="mb-3">
+                @TempData["submit_msg"]
+            </div>
+        }
+        <button type="submit" class="btn btn-primary">Update</button>
+        <a href="/person/displaypersons" class="btn btn-primary"> All person </a>
+    </form>
+</div>
